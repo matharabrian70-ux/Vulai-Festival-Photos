@@ -7,10 +7,12 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
     :root { --ink:#21191e; --paper:#fffdf9; --coral:#e74a23; --soft:#f6eee8; --line:#ded6d0; }
-    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,Arial,sans-serif; } figure { margin:0; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,Arial,sans-serif; }
     header { position:absolute; top:0; left:0; right:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 5vw; border-bottom:0; background:transparent; }
     .brand { display:flex; align-items:center; gap:18px; color:#fff; text-decoration:none; } .logo { width:74px; height:74px; object-fit:contain; } .site-title { font-size:clamp(21px,2.7vw,38px); font-weight:800; letter-spacing:-.065em; line-height:1; white-space:nowrap; color:#fff; }
-    nav { display:flex; gap:24px; } nav a { color:#fff; font:500 11px "DM Mono",monospace; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; } nav a:hover { color:var(--coral); }
+    nav { display:flex; align-items:center; gap:24px; } nav a { color:#fff; font:500 11px "DM Mono",monospace; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; } nav a:hover { color:var(--coral); }
+    .shop-link { padding:10px 14px; border:1px solid rgba(255,255,255,.75); border-radius:999px; } .shop-link:hover { color:#fff; background:var(--coral); border-color:var(--coral); }
+    .menu-toggle { display:none; color:#fff; border:0; background:none; padding:8px; font:500 13px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
     .hero { position:relative; min-height:100svh; display:grid; place-items:center; overflow:hidden; padding:96px 5vw 42px; text-align:center; color:#fff; background-image:linear-gradient(rgba(10,8,12,.28),rgba(10,8,12,.48)),url("images/vulai-hero.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; }
     .hero::after { content:""; position:absolute; inset:0; pointer-events:none; }
     .hero h1 { position:relative; z-index:1; max-width:1100px; margin:0 auto; font-size:clamp(42px,6.2vw,94px); font-weight:800; letter-spacing:-.055em; line-height:.98; color:#fff; text-shadow:0 3px 18px rgba(0,0,0,.42); text-wrap:balance; }
@@ -18,31 +20,51 @@
     .hero h1::before { content:"Celebrating Luhya culture, heritage and community."; display:block; font-size:clamp(42px,6.2vw,94px); line-height:.98; }
     .hero .theme { position:relative; z-index:1; margin:22px auto 0; color:#fff; font:500 clamp(12px,1.4vw,17px) "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; text-shadow:0 2px 10px rgba(0,0,0,.45); }
     .hero-arrow { position:absolute; z-index:2; bottom:28px; left:50%; width:14px; height:14px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:translateX(-50%) rotate(45deg); opacity:.9; }
-    .gallery-head { display:flex; justify-content:space-between; gap:20px; padding:14px 5vw; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); } .gallery-head p { margin:0; font:500 11px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
     .about { display:grid; grid-template-columns:.7fr 1.3fr; gap:clamp(28px,8vw,130px); padding:clamp(48px,7vw,100px) 12vw; background:var(--soft); border-top:1px solid var(--line); } .about-label { margin:0; color:var(--coral); font:500 11px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; } .about h2 { max-width:760px; margin:0; font-size:clamp(30px,4.5vw,64px); letter-spacing:-.075em; line-height:.98; } .about h2 span { color:var(--coral); } .about p { max-width:680px; margin:24px 0 0; font-size:clamp(15px,1.5vw,19px); line-height:1.65; } .about-signoff { margin-top:26px !important; color:var(--coral); font-weight:700; }
-    .gallery { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:1px; padding:1px 5vw 90px; } .tile { aspect-ratio:1/1; overflow:hidden; background:var(--soft); cursor:zoom-in; content-visibility:auto; contain-intrinsic-size:220px; } .tile img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .3s ease; } .tile:hover img { transform:scale(1.03); }
-    .viewer { position:fixed; inset:0; z-index:10; display:none; place-items:center; padding:64px 30px 30px; background:rgba(20,15,17,.95); } .viewer.open { display:grid; } .viewer img { max-width:min(94vw,1500px); max-height:84vh; object-fit:contain; } .viewer-actions { position:absolute; top:21px; right:5vw; display:flex; gap:18px; } .viewer-actions a,.viewer-actions button { color:#fff; border:0; background:none; padding:0; font:500 12px "DM Mono",monospace; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; cursor:pointer; }
     footer { padding:clamp(45px,7vw,90px) 5vw 28px; background:var(--soft); border-top:1px solid var(--line); } .contact-card { max-width:900px; margin:auto; padding:clamp(28px,5vw,62px); background:#fff; border:1px solid var(--line); } .contact-card h2 { margin:0 0 38px; color:var(--ink); font-size:clamp(30px,5vw,62px); letter-spacing:-.075em; line-height:.95; } .contact-card h2 span { color:var(--coral); } .contacts { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; padding-top:20px; border-top:1px solid var(--line); } .contacts label { display:block; margin-bottom:8px; color:var(--coral); font:10px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; } .contacts p,.contacts a { margin:0; color:var(--ink); font-size:14px; text-decoration:none; } .footer-bottom { display:flex; justify-content:space-between; margin-top:24px; padding-top:18px; border-top:1px solid var(--line); font:10px "DM Mono",monospace; letter-spacing:.07em; text-transform:uppercase; }
-    @media (max-width:700px) { header { padding:14px 5vw; } .logo { width:52px; height:52px; } .brand { gap:10px; } .site-title { font-size:clamp(18px,5.5vw,28px); } nav { gap:12px; } nav a { font-size:9px; } .hero { min-height:100svh; padding:96px 6vw 42px; background-position:center center; } .hero h1::before { font-size:clamp(36px,10vw,58px); line-height:1; } .hero .theme { font-size:11px; margin-top:20px; } .hero-arrow { bottom:24px; width:12px; height:12px; } .about { grid-template-columns:1fr; gap:20px; padding:48px 8vw; } .gallery-head { padding:13px 6vw; } .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); padding:1px 6vw 55px; } .contacts { grid-template-columns:repeat(2,1fr); } .footer-bottom { gap:18px; flex-direction:column; } }
+    @media (max-width:700px) {
+      header { padding:14px 5vw; } .logo { width:52px; height:52px; } .brand { gap:10px; } .site-title { font-size:clamp(18px,5.5vw,28px); }
+      nav { position:absolute; top:78px; right:5vw; display:none; flex-direction:column; align-items:stretch; gap:0; min-width:190px; padding:10px; background:rgba(20,15,17,.94); border:1px solid rgba(255,255,255,.2); border-radius:14px; box-shadow:0 16px 35px rgba(0,0,0,.28); }
+      nav.open { display:flex; } nav a { padding:13px 12px; font-size:10px; } .shop-link { margin-top:4px; text-align:center; }
+      .menu-toggle { display:block; } .hero { min-height:100svh; padding:96px 6vw 42px; background-position:center center; } .hero h1::before { font-size:clamp(36px,10vw,58px); line-height:1; } .hero .theme { font-size:11px; margin-top:20px; } .hero-arrow { bottom:24px; width:12px; height:12px; }
+      .about { grid-template-columns:1fr; gap:20px; padding:48px 8vw; } .contacts { grid-template-columns:repeat(2,1fr); } .footer-bottom { gap:18px; flex-direction:column; }
+    }
     @media (min-width:701px) and (max-width:1100px) { .hero h1::before { font-size:clamp(48px,7vw,76px); } }
   </style>
 </head>
 <body>
-  <header><a class="brand" href="#top"><img class="logo" src="images/vulai-logo.png" alt="Vulai Festival logo" /><span class="site-title">VULAI FESTIVAL</span></a><nav><a href="#about">About</a><a href="#gallery">Photos</a><a href="#contact">Contact</a></nav></header>
-  <main id="top"><section class="hero"><h1>Vulai Festival<br />in every frame.</h1><p class="theme">The heartbeat of Luhya culture</p><span class="hero-arrow" aria-hidden="true"></span></section><section id="gallery"><div class="gallery-head"><p>Festival photo archive</p><p>716 moments — click to enlarge</p></div><div class="gallery" id="photo-gallery"></div></section></main>
-  <div class="viewer" aria-hidden="true" role="dialog" aria-label="Photo viewer"><div class="viewer-actions"><a id="download-photo" href="#" download>Download full quality</a><button class="close-viewer" type="button">Close ×</button></div><img src="" alt="Festival photo" /></div>
-  <footer id="contact"><section class="about" id="about"><p class="about-label">About Vulai Festival</p><div><h2>VULAI FESTIVAL<br /><span>The Heartbeat of Luhya Culture, Music &amp; Heritage Celebrations.</span></h2><p>Vulai Festival is a vibrant celebration of Luhya identity, bringing together music, culture, food, dance, fashion, and heritage to connect generations, showcase talent, and keep our traditions alive.</p><p class="about-signoff">Vulai — Celebrating who we are.</p></div></section><section class="contact-card"><h2>YOU CAN <span>FIND US</span><br />AT</h2><div class="contacts"><div><label>Instagram</label><p><a href="https://instagram.com/vulai.festival" target="_blank" rel="noopener">@vulai.festival</a></p></div><div><label>TikTok</label><p><a href="https://tiktok.com/@vulai_festival" target="_blank" rel="noopener">@vulai_festival</a></p></div><div><label>Gmail</label><p><a href="mailto:vulaifestival@gmail.com">vulaifestival@gmail.com</a></p></div><div><label>Facebook</label><p>@vulai festival</p></div></div></section><div class="footer-bottom"><span>© 2026 Vulai Festival</span><span>The heartbeat of Luhya culture</span></div></footer>
+  <header>
+    <a class="brand" href="#top"><img class="logo" src="images/vulai-logo.png" alt="Vulai Festival logo" /><span class="site-title">VULAI FESTIVAL</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu ☰</button>
+    <nav id="site-menu">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="gallery.html">Photos</a>
+      <a href="#contact">Contact</a>
+      <a class="shop-link" href="https://vulaifestival.hustlesasa.shop/" target="_blank" rel="noopener">Shop</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero"><h1>Vulai Festival<br />in every frame.</h1><p class="theme">The heartbeat of Luhya culture</p><span class="hero-arrow" aria-hidden="true"></span></section>
+  </main>
+  <footer id="contact">
+    <section class="about" id="about"><p class="about-label">About Vulai Festival</p><div><h2>VULAI FESTIVAL<br /><span>The Heartbeat of Luhya Culture, Music &amp; Heritage Celebrations.</span></h2><p>Vulai Festival is a vibrant celebration of Luhya identity, bringing together music, culture, food, dance, fashion, and heritage to connect generations, showcase talent, and keep our traditions alive.</p><p class="about-signoff">Vulai — Celebrating who we are.</p></div></section>
+    <section class="contact-card"><h2>YOU CAN <span>FIND US</span><br />AT</h2><div class="contacts"><div><label>Instagram</label><p><a href="https://instagram.com/vulai.festival" target="_blank" rel="noopener">@vulai.festival</a></p></div><div><label>TikTok</label><p><a href="https://tiktok.com/@vulai_festival" target="_blank" rel="noopener">@vulai_festival</a></p></div><div><label>Gmail</label><p><a href="mailto:vulaifestival@gmail.com">vulaifestival@gmail.com</a></p></div><div><label>Facebook</label><p>@vulai festival</p></div></div></section>
+    <div class="footer-bottom"><span>© 2026 Vulai Festival</span><span>The heartbeat of Luhya culture</span></div>
+  </footer>
   <script>
-    const gallery = document.getElementById('photo-gallery');
-    for (let number = 716; number >= 1; number--) {
-      const fileNumber = String(number).padStart(3, '0');
-      const eager = number >= 706 ? 'eager' : 'lazy';
-      gallery.insertAdjacentHTML('beforeend', `<figure class="tile"><img src="images/thumbnails/photo-${fileNumber}.jpg" data-full="images/gallery/photo-${fileNumber}.jpg" alt="Festival photo" loading="${eager}" decoding="async"></figure>`);
-    }
-    const viewer = document.querySelector('.viewer'); const viewerImage = viewer.querySelector('img'); const download = document.getElementById('download-photo');
-    const closeViewer = () => { viewer.classList.remove('open'); viewer.setAttribute('aria-hidden', 'true'); viewerImage.src = ''; };
-    gallery.addEventListener('click', (event) => { const image = event.target.closest('.tile img'); if (!image) return; const fullPhoto = image.dataset.full; viewerImage.src = fullPhoto; download.href = fullPhoto; download.download = fullPhoto.split('/').pop(); viewer.classList.add('open'); viewer.setAttribute('aria-hidden', 'false'); });
-    viewer.addEventListener('click', (event) => { if (event.target === viewer) closeViewer(); }); document.querySelector('.close-viewer').addEventListener('click', closeViewer); document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeViewer(); });
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteMenu = document.getElementById('site-menu');
+    menuToggle.addEventListener('click', () => {
+      const open = siteMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    siteMenu.addEventListener('click', (event) => {
+      if (event.target.matches('a') && !event.target.classList.contains('shop-link')) {
+        siteMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
 </body>
 </html>
