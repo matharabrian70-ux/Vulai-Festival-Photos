@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VULAI FESTIVAL PHOTOS</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
     :root { --ink:#21191e; --paper:#fffdf9; --coral:#e74a23; --soft:#f6eee8; --line:#ded6d0; }
     * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,Arial,sans-serif; }
     header { position:absolute; top:0; left:0; right:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 5vw; border-bottom:0; background:transparent; }
@@ -20,14 +20,30 @@
     .hero h1::before { content:"Celebrating Luhya culture, heritage and community."; display:block; font-size:clamp(42px,6.2vw,94px); line-height:.98; }
     .hero .theme { position:relative; z-index:1; margin:22px auto 0; color:#fff; font:500 clamp(12px,1.4vw,17px) "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; text-shadow:0 2px 10px rgba(0,0,0,.45); }
     .hero-arrow { position:absolute; z-index:2; bottom:28px; left:50%; width:14px; height:14px; border-right:2px solid #fff; border-bottom:2px solid #fff; transform:translateX(-50%) rotate(45deg); opacity:.9; }
-    .about { display:grid; grid-template-columns:.7fr 1.3fr; gap:clamp(28px,8vw,130px); padding:clamp(48px,7vw,100px) 12vw; background:var(--soft); border-top:1px solid var(--line); } .about-label { margin:0; color:var(--coral); font:500 11px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; } .about h2 { max-width:760px; margin:0; font-size:clamp(30px,4.5vw,64px); letter-spacing:-.075em; line-height:.98; } .about h2 span { color:var(--coral); } .about p { max-width:680px; margin:24px 0 0; font-size:clamp(15px,1.5vw,19px); line-height:1.65; } .about-signoff { margin-top:26px !important; color:var(--coral); font-weight:700; }
+    .about { display:block; padding:clamp(56px,8vw,100px) clamp(6vw,12vw,14vw); background:#fff; border-top:1px solid var(--line); font-family:Poppins,Arial,sans-serif; }
+    .about-label { margin:0 0 30px; color:var(--coral); font-size:clamp(30px,4vw,48px); font-weight:700; letter-spacing:-.04em; line-height:1.1; }
+    .about-content { max-width:980px; margin:0 auto; }
+    .about-intro { margin:0; max-width:900px; font-size:clamp(17px,1.65vw,22px); font-weight:600; line-height:1.55; }
+    .about-block { margin-top:48px; }
+    .about-heading { display:flex; align-items:center; gap:14px; margin:0 0 22px; color:var(--coral); font-size:clamp(24px,3vw,36px); font-weight:700; letter-spacing:-.035em; line-height:1.15; }
+    .about-icon { flex:0 0 46px; width:46px; height:46px; display:grid; place-items:center; background:#2d3b82; color:#fff; }
+    .about-icon svg { width:27px; height:27px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .about-theme { margin:0; font-size:clamp(17px,1.55vw,21px); font-weight:600; line-height:1.55; }
+    .objectives { margin:0; padding-left:34px; font-size:clamp(16px,1.45vw,20px); font-weight:600; line-height:1.55; }
+    .objectives li { padding-left:7px; margin:0 0 10px; }
+    .about-history { margin:44px 0 0; max-width:920px; font-size:clamp(16px,1.5vw,20px); font-weight:600; line-height:1.55; }
+    .safety { margin-top:64px; padding:8px 0 8px 24px; border-left:4px solid var(--coral); }
+    .safety h3 { margin:0 0 24px; color:var(--coral); font-size:clamp(26px,3.3vw,40px); font-weight:700; letter-spacing:-.045em; line-height:1.15; }
+    .safety p { margin:0 0 22px; max-width:900px; font-size:clamp(16px,1.45vw,20px); font-weight:600; line-height:1.55; }
+    .safety p:last-child { margin-bottom:0; }
     footer { padding:clamp(45px,7vw,90px) 5vw 28px; background:var(--soft); border-top:1px solid var(--line); } .contact-card { max-width:900px; margin:auto; padding:clamp(28px,5vw,62px); background:#fff; border:1px solid var(--line); } .contact-card h2 { margin:0 0 38px; color:var(--ink); font-size:clamp(30px,5vw,62px); letter-spacing:-.075em; line-height:.95; } .contact-card h2 span { color:var(--coral); } .contacts { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; padding-top:20px; border-top:1px solid var(--line); } .contacts label { display:block; margin-bottom:8px; color:var(--coral); font:10px "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; } .contacts p,.contacts a { margin:0; color:var(--ink); font-size:14px; text-decoration:none; } .footer-bottom { display:flex; justify-content:space-between; margin-top:24px; padding-top:18px; border-top:1px solid var(--line); font:10px "DM Mono",monospace; letter-spacing:.07em; text-transform:uppercase; }
     @media (max-width:700px) {
       header { padding:14px 5vw; } .logo { width:52px; height:52px; } .brand { gap:10px; } .site-title { font-size:clamp(18px,5.5vw,28px); }
       nav { position:absolute; top:78px; right:5vw; display:none; flex-direction:column; align-items:stretch; gap:0; min-width:190px; padding:10px; background:rgba(20,15,17,.94); border:1px solid rgba(255,255,255,.2); border-radius:14px; box-shadow:0 16px 35px rgba(0,0,0,.28); }
       nav.open { display:flex; } nav a { padding:13px 12px; font-size:10px; } .shop-link { margin-top:4px; text-align:center; }
       .menu-toggle { display:block; } .hero { min-height:100svh; padding:96px 6vw 42px; background-position:center center; } .hero h1::before { font-size:clamp(36px,10vw,58px); line-height:1; } .hero .theme { font-size:11px; margin-top:20px; } .hero-arrow { bottom:24px; width:12px; height:12px; }
-      .about { grid-template-columns:1fr; gap:20px; padding:48px 8vw; } .contacts { grid-template-columns:repeat(2,1fr); } .footer-bottom { gap:18px; flex-direction:column; }
+      .about { padding:50px 7vw 64px; } .about-label { margin-bottom:24px; } .about-block { margin-top:40px; } .about-heading { gap:12px; margin-bottom:18px; } .about-icon { flex-basis:42px; width:42px; height:42px; } .about-icon svg { width:24px; height:24px; } .objectives { padding-left:29px; } .about-history { margin-top:36px; } .safety { margin-top:50px; padding-left:18px; border-left-width:3px; } .safety h3 { margin-bottom:20px; }
+      .contacts { grid-template-columns:repeat(2,1fr); } .footer-bottom { gap:18px; flex-direction:column; }
     }
     @media (min-width:701px) and (max-width:1100px) { .hero h1::before { font-size:clamp(48px,7vw,76px); } }
   </style>
@@ -48,7 +64,31 @@
     <section class="hero"><h1>Vulai Festival<br />in every frame.</h1><p class="theme">The heartbeat of Luhya culture</p><span class="hero-arrow" aria-hidden="true"></span></section>
   </main>
   <footer id="contact">
-    <section class="about" id="about"><p class="about-label">About Vulai Festival</p><div><h2>VULAI FESTIVAL<br /><span>The Heartbeat of Luhya Culture, Music &amp; Heritage Celebrations.</span></h2><p>Vulai Festival is a vibrant celebration of Luhya identity, bringing together music, culture, food, dance, fashion, and heritage to connect generations, showcase talent, and keep our traditions alive.</p><p class="about-signoff">Vulai — Celebrating who we are.</p></div></section>
+    <section class="about" id="about">
+      <div class="about-content">
+        <h2 class="about-label">About us</h2>
+        <p class="about-intro">Madada Events strategically position itself as an entity that rubberstamps the original roots and traditional culture to the young generation, a generation that has been largely grown in modernity leaving behind their heritage.</p>
+        <div class="about-block">
+          <h3 class="about-heading"><span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10v4h4l7 5V5l-7 5H3Z"/><path d="M18 9c1.5 1.5 1.5 4.5 0 6"/><path d="M20.5 6.5c3 3 3 8 0 11"/></svg></span>OUR THEME:</h3>
+          <p class="about-theme">Celebrating Culture, Talent, and Community.</p>
+        </div>
+        <div class="about-block">
+          <h3 class="about-heading"><span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="m14.5 9.5 6-6"/><path d="M17 3h3.5v3.5"/></svg></span>CORE OBJECTIVES:</h3>
+          <ol class="objectives" type="I">
+            <li>To celebrate and promote the rich Luhya culture.</li>
+            <li>To create platforms for youth to showcase talent in music, art, and entrepreneurship.</li>
+            <li>To stimulate local economic activity through business opportunities for vendors, artists and service providers.</li>
+          </ol>
+        </div>
+        <p class="about-history">After a highly successful 1st Edition of Vulai Festival at the KICC Nairobi on 2nd August 2025 which attracted 2,834 attendees and the 2nd Edition dubbed Ingoo Edition held on 27th Dec 2025 in Kakamega Showground that attracted 7,320 attendees we are now gearing up for the next editions; bigger, better and more impactful.</p>
+        <div class="safety">
+          <h3>Safety and Security Measures</h3>
+          <p>As a company, safety and security of our attendees; both clients, partners, guests and service providers, is at the core of our event organizing and execution processes.</p>
+          <p>Our ticketing processes are concrete to ensure that only those with valid ticket have a right to access the venues. Our marketing campaigns loudly sensitize our target customers on the safety measures taken and the unauthorized materials within and around the event venues.</p>
+          <p>We also partner with private security firms who strictly man the entry points and the fencing areas. We also do thorough screening for both individuals and vehicles to curb any entry of unauthorized substances and drinks and meals from outside.</p>
+        </div>
+      </div>
+    </section>
     <section class="contact-card"><h2>YOU CAN <span>FIND US</span><br />AT</h2><div class="contacts"><div><label>Instagram</label><p><a href="https://instagram.com/vulai.festival" target="_blank" rel="noopener">@vulai.festival</a></p></div><div><label>TikTok</label><p><a href="https://tiktok.com/@vulai_festival" target="_blank" rel="noopener">@vulai_festival</a></p></div><div><label>Gmail</label><p><a href="mailto:vulaifestival@gmail.com">vulaifestival@gmail.com</a></p></div><div><label>Facebook</label><p>@vulai festival</p></div></div></section>
     <div class="footer-bottom"><span>© 2026 Vulai Festival</span><span>The heartbeat of Luhya culture</span></div>
   </footer>
