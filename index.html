@@ -36,6 +36,31 @@
     .safety h3 { margin:0 0 24px; color:var(--coral); font-size:clamp(26px,3.3vw,40px); font-weight:700; letter-spacing:-.045em; line-height:1.15; }
     .safety p { margin:0 0 22px; max-width:900px; font-size:clamp(16px,1.45vw,20px); font-weight:600; line-height:1.55; }
     .safety p:last-child { margin-bottom:0; }
+
+    .past-events { padding:clamp(55px,8vw,95px) clamp(6vw,10vw,12vw); background:#fff; border-top:1px solid var(--line); font-family:Poppins,Arial,sans-serif; }
+    .past-events-inner { max-width:1180px; margin:0 auto; }
+    .past-events-title { margin:0 0 34px; color:var(--coral); font-size:clamp(30px,4vw,48px); font-weight:700; letter-spacing:-.04em; line-height:1.1; text-align:center; }
+    .event-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+    .event-card { position:relative; min-height:310px; overflow:hidden; border-radius:16px; background:#21191e; box-shadow:0 12px 30px rgba(33,25,30,.12); cursor:pointer; }
+    .event-card img { display:block; width:100%; height:100%; min-height:310px; object-fit:cover; transition:transform .45s ease; }
+    .event-card::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(25,18,20,.9),rgba(25,18,20,.05) 68%); pointer-events:none; }
+    .event-overlay { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:flex-end; padding:28px; color:#fff; }
+    .event-edition { margin:0; font-size:clamp(23px,2.5vw,34px); font-weight:700; line-height:1.1; }
+    .event-detail { max-height:0; margin:0; overflow:hidden; opacity:0; transform:translateY(10px); transition:max-height .35s ease,opacity .35s ease,transform .35s ease,margin-top .35s ease; font-size:clamp(14px,1.3vw,17px); font-weight:500; line-height:1.45; }
+    .event-card:hover img,.event-card.active img { transform:scale(1.04); }
+    .event-card:hover .event-detail,.event-card.active .event-detail { max-height:90px; margin-top:12px; opacity:1; transform:translateY(0); }
+    .tickets-wrap { display:flex; justify-content:center; margin-top:38px; }
+    .tickets-button { display:inline-flex; align-items:center; justify-content:center; max-width:760px; padding:16px 26px; border-radius:999px; background:var(--coral); color:#fff; font:700 clamp(11px,1.2vw,15px) Poppins,Arial,sans-serif; letter-spacing:.01em; text-align:center; text-decoration:none; box-shadow:0 10px 22px rgba(231,74,35,.2); transition:transform .2s ease,background .2s ease; }
+    .tickets-button:hover { background:#c93b19; transform:translateY(-2px); }
+    .lineup { margin-top:clamp(58px,7vw,86px); padding-top:clamp(38px,5vw,60px); border-top:1px solid var(--line); }
+    .lineup-heading { display:flex; align-items:center; justify-content:center; gap:12px; margin:0 0 22px; color:var(--coral); font-size:clamp(25px,3.1vw,38px); font-weight:700; letter-spacing:-.035em; }
+    .lineup-icon { display:grid; place-items:center; width:38px; height:38px; flex:0 0 38px; background:#2d3b82; color:#fff; border-radius:2px; }
+    .lineup-icon svg { width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .lineup-table-wrap { display:flex; justify-content:center; }
+    .lineup-table { width:min(620px,100%); border-collapse:separate; border-spacing:3px; font-family:Poppins,Arial,sans-serif; font-weight:700; }
+    .lineup-table th { background:var(--coral); color:#fff; padding:7px 11px; text-align:left; font-size:clamp(12px,1.2vw,16px); }
+    .lineup-table td { background:#c8c8dc; color:#0d0d13; padding:6px 11px; text-align:left; font-size:clamp(12px,1.15vw,15px); }
+
     footer { padding:clamp(45px,7vw,90px) 5vw 28px; background:var(--soft); border-top:1px solid var(--line); }
     .contact-card { max-width:900px; margin:auto; padding:clamp(28px,5vw,62px); background:#fff; border:1px solid var(--line); }
     .contact-card h2 { margin:0 0 38px; color:var(--ink); font-size:clamp(30px,5vw,62px); letter-spacing:-.075em; line-height:.95; } .contact-card h2 span { color:var(--coral); }
@@ -52,9 +77,11 @@
       header nav.open { display:flex; } header nav a { padding:13px 12px; font-size:10px; } .shop-link { margin-top:4px; text-align:center; }
       .menu-toggle { display:block; } .hero { min-height:100svh; padding:96px 6vw 42px; background-position:center center; } .hero h1::before { font-size:clamp(36px,10vw,58px); line-height:1; } .hero .theme { font-size:11px; margin-top:20px; } .hero-arrow { bottom:24px; width:12px; height:12px; }
       .about { padding:50px 7vw 64px; } .about-label { margin-bottom:24px; } .about-block { margin-top:40px; } .about-heading { gap:12px; margin-bottom:18px; } .about-icon { flex-basis:42px; width:42px; height:42px; } .about-icon svg { width:24px; height:24px; } .objectives { padding-left:29px; } .about-history { margin-top:36px; } .safety { margin-top:50px; padding-left:18px; border-left-width:3px; } .safety h3 { margin-bottom:20px; }
+      .past-events { padding:50px 7vw 64px; } .past-events-title { margin-bottom:26px; } .event-grid { grid-template-columns:1fr; gap:22px; } .event-card,.event-card img { min-height:330px; } .event-overlay { padding:24px; } .event-detail { font-size:15px; } .tickets-wrap { margin-top:30px; } .tickets-button { width:100%; padding:15px 18px; line-height:1.35; border-radius:16px; }
+      .lineup { margin-top:50px; padding-top:34px; } .lineup-heading { font-size:26px; margin-bottom:18px; } .lineup-icon { width:34px; height:34px; flex-basis:34px; } .lineup-icon svg { width:21px; height:21px; } .lineup-table { width:100%; border-spacing:2px; } .lineup-table th,.lineup-table td { padding:9px 9px; font-size:14px; } .lineup-table th:first-child,.lineup-table td:first-child { width:38%; }
       .contacts { grid-template-columns:repeat(2,1fr); } .footer-nav { gap:16px 20px; margin-top:28px; padding-top:20px; } .footer-bottom { gap:18px; flex-direction:column; }
     }
-    @media (min-width:701px) and (max-width:1100px) { .hero h1::before { font-size:clamp(48px,7vw,76px); } }
+    @media (min-width:701px) and (max-width:1100px) { .hero h1::before { font-size:clamp(48px,7vw,76px); } .past-events { padding-left:7vw; padding-right:7vw; } .event-grid { gap:18px; } .event-card,.event-card img { min-height:260px; } .lineup-table { width:min(540px,100%); } }
   </style>
 </head>
 <body>
@@ -77,14 +104,55 @@
         <div class="safety"><h3>Safety and Security Measures</h3><p>As a company, safety and security of our attendees; both clients, partners, guests and service providers, is at the core of our event organizing and execution processes.</p><p>Our ticketing processes are concrete to ensure that only those with valid ticket have a right to access the venues. Our marketing campaigns loudly sensitize our target customers on the safety measures taken and the unauthorized materials within and around the event venues.</p><p>We also partner with private security firms who strictly man the entry points and the fencing areas. We also do thorough screening for both individuals and vehicles to curb any entry of unauthorized substances and drinks and meals from outside.</p></div>
       </div>
     </section>
+
+    <section class="past-events" id="past-events">
+      <div class="past-events-inner">
+        <h2 class="past-events-title">Our Past Events</h2>
+        <div class="event-grid">
+          <article class="event-card" tabindex="0" aria-label="Edition 1: We celebrated our culture at KICC">
+            <img src="images/Vulai-Edition 1-Slide 1.jpeg" alt="Vulai Festival Edition 1" loading="lazy" />
+            <div class="event-overlay"><h3 class="event-edition">Edition 1</h3><p class="event-detail">We celebrated our culture at KICC</p></div>
+          </article>
+          <article class="event-card" tabindex="0" aria-label="Edition 2: We were in Kakamega">
+            <img src="images/Vulai-Edition 2-Slide 2.jpeg" alt="Vulai Festival Edition 2" loading="lazy" />
+            <div class="event-overlay"><h3 class="event-edition">Edition 2</h3><p class="event-detail">We were in Kakamega</p></div>
+          </article>
+          <article class="event-card" tabindex="0" aria-label="Edition 3: We had a Beachhangout in Mombasa">
+            <img src="images/Vulai-Edition3-Slide 1.jpeg" alt="Vulai Festival Edition 3" loading="lazy" />
+            <div class="event-overlay"><h3 class="event-edition">Edition 3</h3><p class="event-detail">We had a Beachhangout in Mombasa</p></div>
+          </article>
+        </div>
+        <div class="tickets-wrap"><a class="tickets-button" href="https://vulaifestival.hustlesasa.shop/" target="_blank" rel="noopener">BUY TICKETS TO OUR NEXT EVENT HERE AND DONT MISSOUT</a></div>
+        <div class="lineup">
+          <h2 class="lineup-heading"><span class="lineup-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/><path d="M8 13h3M8 17h5"/></svg></span>Line-up of Events</h2>
+          <div class="lineup-table-wrap"><table class="lineup-table"><thead><tr><th>Edition</th><th>Dates</th></tr></thead><tbody><tr><td>Mombasa</td><td>4th April 2026</td></tr><tr><td>Nairobi</td><td>1st August 2026</td></tr><tr><td>Bungoma</td><td>26th December 2026</td></tr></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact-card"><h2>YOU CAN <span>FIND US</span><br />AT</h2><div class="contacts"><div><label>Instagram</label><p><a class="social-link" href="https://instagram.com/vulai.festival" target="_blank" rel="noopener" aria-label="Vulai Festival Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>@vulai.festival</a></p></div><div><label>TikTok</label><p><a class="social-link tiktok" href="https://tiktok.com/@vulai_festival" target="_blank" rel="noopener" aria-label="Vulai Festival TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.5-4.23"/><path d="M14 4c1 2.3 2.5 3.5 5 3.7"/></svg>@vulai_festival</a></p></div><div><label>Gmail</label><p><a href="mailto:vulaifestival@gmail.com">vulaifestival@gmail.com</a></p></div><div><label>Facebook</label><p>@vulai festival</p></div></div></section>
-    <nav class="footer-nav" aria-label="Footer navigation"><a href="#top">Home</a><a href="#about">About</a><a href="gallery.html">Gallery</a><a href="#contact">Contact</a><a class="footer-shop" href="https://vulaifestival.hustlesasa.shop/" target="_blank" rel="noopener">Shop</a><a href="terms.html">Terms &amp; Conditions</a></nav>
+    <nav class="footer-nav"><a href="#top">Home</a><a href="#about">About</a><a href="gallery.html">Gallery</a><a href="#contact">Contact</a><a class="footer-shop" href="https://vulaifestival.hustlesasa.shop/" target="_blank" rel="noopener">Shop</a><a href="terms.html">Terms &amp; Conditions</a></nav>
     <div class="footer-bottom"><span>© 2026 Vulai Festival</span><span>The heartbeat of Luhya culture</span></div>
   </footer>
   <script>
-    const menuToggle = document.querySelector('.menu-toggle'); const siteMenu = document.getElementById('site-menu');
-    menuToggle.addEventListener('click', () => { const open = siteMenu.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); });
-    siteMenu.addEventListener('click', (event) => { if (event.target.matches('a') && !event.target.classList.contains('shop-link')) { siteMenu.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); } });
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteMenu = document.getElementById('site-menu');
+    menuToggle.addEventListener('click', () => {
+      const open = siteMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('header')) {
+        siteMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('active'));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); card.classList.toggle('active'); }
+      });
+    });
   </script>
 </body>
 </html>
